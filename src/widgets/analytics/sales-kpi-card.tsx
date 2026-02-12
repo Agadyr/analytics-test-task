@@ -1,5 +1,21 @@
 import { Card } from '@/shared/ui/card'
 import { Progress } from '@/shared/ui/progress'
+import { KpiMetricsCarousel } from './ui/kpi-metrics-carousel'
+
+const KPI_DATA = [
+  {
+    items: [
+      { label: 'Склад обработка:', value: '0 ₸', documents: '0 документов' },
+      { label: 'Склад готово:', value: '1 345 222 ₸', documents: '5 документов', valueColor: 'text-[#22C55E]' },
+    ]
+  },
+  {
+    items: [
+      { label: 'В ожидании:', value: '0 ₸', documents: '0 документов' },
+      { label: 'Касса обработка:', value: '0 ₸', documents: '5 документов', valueColor: 'text-[#6366F1]' },
+    ]
+  }
+]
 
 export function SalesKpiCard() {
   return (
@@ -21,33 +37,7 @@ export function SalesKpiCard() {
         </div>
       </Card>
 
-      <div className="bg-white rounded-2xl p-3 border border-gray-100">
-          <div className="flex flex-col gap-1">
-            <p className="text-[15px] text-[#9CA3AF]">Склад обработка:</p>
-            <div className="flex items-center justify-between">
-              <span className="text-lg  text-[#2D2D2D]">0 ₸</span>
-              <span className="text-[#3B3F44]">0 документов</span>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-1 mt-2">
-            <p className="text-[15px] text-[#9CA3AF]">Склад готово:</p>
-            <div className="flex items-center justify-between">
-              <span className="text-lg text-lightGreen">1 345 222 ₸</span>
-              <span className="text-[#3B3F44]">5 документов</span>
-            </div>
-          </div>
-
-        <div className="flex items-center gap-2 mt-1">
-          <button className="px-3 py-2 bg-[#F1F3F5] rounded-lg cursor-pointer hover:bg-gray-200 transition-colors flex items-center justify-center">
-            <img src="icons/rightArrow.svg" className='rotate-180' alt="" />
-          </button>
-          <button className="px-3 py-2 bg-[#F1F3F5] rounded-lg cursor-pointer hover:bg-gray-200 transition-colors flex items-center justify-center">
-            <img src="icons/rightArrow.svg" alt="" />
-          </button>
-        </div>
-      </div>
-
+      <KpiMetricsCarousel data={KPI_DATA} />
     </div>
   )
 }

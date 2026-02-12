@@ -31,7 +31,7 @@ export function AnalyticsTabCard({
                             <TabsTrigger
                                 key={tab.value}
                                 value={tab.value}
-                                className="cursor-pointerdata-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b data-[state=active]:border-[#007AFF] data-[state=active]:text-[#2D2D2D] text-[#AAB4BC] h-full rounded-none p-0 mr-3 font-medium transition-all hover:text-gray-600 bg-transparent border-0 text-[15px]"
+                                className="cursor-pointer data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b data-[state=active]:border-[#007AFF] data-[state=active]:text-[#2D2D2D] text-[#AAB4BC] h-full rounded-none p-0 mr-3 font-medium transition-all hover:text-gray-600 bg-transparent border-0 text-[15px] xl:text-[17px]"
                             >
                                 {tab.label}
                             </TabsTrigger>

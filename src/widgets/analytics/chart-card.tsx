@@ -8,78 +8,17 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
-
-const data = [
-  { date: '01.12.25', current: 0, previous: 0, returns: 0 },
-  { date: '02.12.25', current: 0, previous: 5000, returns: 0 },
-  { date: '03.12.25', current: 0, previous: 0, returns: 0 },
-  { date: '04.12.25', current: 4000, previous: 500, returns: 0 },
-  { date: '05.12.25', current: 5000, previous: 1000, returns: 0 },
-  { date: '06.12.25', current: 1500, previous: 7000, returns: 0 },
-  { date: '07.12.25', current: 9000, previous: 2000, returns: 0 },
-  { date: '08.12.25', current: 3000, previous: 6500, returns: 0 },
-  { date: '09.12.25', current: 2000, previous: 2000, returns: 0 },
-  { date: '10.12.25', current: 5000, previous: 0, returns: 0 },
-  { date: '11.12.25', current: 0, previous: 0, returns: 0 },
-  { date: '12.12.25', current: 6000, previous: 0, returns: 0 },
-  { date: '13.12.25', current: 1000, previous: 0, returns: 0 },
-  { date: '14.12.25', current: 500, previous: 0, returns: 0 },
-  { date: '15.12.25', current: 8000, previous: 0, returns: 0 },
-  { date: '16.12.25', current: 2000, previous: 0, returns: 0 },
-  { date: '17.12.25', current: 1000, previous: 0, returns: 4000 },
-  { date: '18.12.25', current: 5000, previous: 0, returns: 200 },
-  { date: '19.12.25', current: 0, previous: 0, returns: 0 },
-  { date: '20.12.25', current: 0, previous: 0, returns: 7000 },
-  { date: '21.12.25', current: 0, previous: 0, returns: 1000 },
-  { date: '22.12.25', current: 5000, previous: 0, returns: 6800 },
-  { date: '23.12.25', current: 0, previous: 0, returns: 1500 },
-  { date: '24.12.25', current: 3500, previous: 0, returns: 0 },
-  { date: '25.12.25', current: 5500, previous: 0, returns: 0 },
-  { date: '26.12.25', current: 1000, previous: 0, returns: 0 },
-  { date: '27.12.25', current: 9000, previous: 0, returns: 0 },
-  { date: '28.12.25', current: 3000, previous: 0, returns: 0 },
-  { date: '29.12.25', current: 1500, previous: 0, returns: 0 },
-  { date: '30.12.25', current: 5000, previous: 0, returns: 0 },
-  { date: '31.12.25', current: 1000, previous: 0, returns: 0 },
-]
+import ChartCardItem from './ui/chart-card-item'
+import { analyticsData } from '@/entities/analytics/model/mock-data'
 
 export function ChartCard() {
   return (
     <Card className="col-span-12 rounded-2xl lg:col-span-8 bg-white shadow-none border-none">
       <CardHeader className="flex flex-row items-center justify-between pb-2 px-4">
         <div className="flex items-center justify-between w-full gap-6">
-          <div className="flex flex-col gap-1 bg-[#F6F6F6] p-2 rounded-lg w-[32%]">
-            <div className="flex items-center justify-between gap-12">
-              <span className="text-[#808A93] text-sm">Текущий месяц:</span>
-              <div className="w-4 h-[2px] bg-[#3b82f6] rounded-full"></div>
-            </div>
-            <div className="flex items-center justify-between gap-2">
-              <span className="font-bold text-[22px] text-[#2D2D2D]">1 711 400 ₸</span>
-              <span className="text-xs text-[#3B3F44]">64 док.</span>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-1 bg-[#F6F6F6] p-2 rounded-lg w-[32%]">
-            <div className="flex items-center justify-between gap-12">
-              <span className="text-[#808A93] text-sm">Предыдущий месяц:</span>
-              <div className="w-4 h-[2px] bg-[#fbbf24] rounded-full"></div>
-            </div>
-            <div className="flex items-center justify-between gap-2">
-              <span className="font-bold text-[22px] text-[#2D2D2D]">1 000 400 ₸</span>
-              <span className="text-xs text-[#3B3F44]">154 док.</span>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-1 bg-[#F6F6F6] p-2 rounded-lg w-[32%]">
-            <div className="flex items-center justify-between gap-12">
-              <span className="text-[#808A93] text-sm">Возвраты текущего месяца:</span>
-              <div className="w-4 h-[2px] bg-[#ef4444] rounded-full"></div>
-            </div>
-            <div className="flex items-center justify-between gap-2">
-              <span className="font-bold text-[22px] text-[#2D2D2D]">300 000 ₸</span>
-              <span className="text-xs text-[#3B3F44]">3 док.</span>
-            </div>
-          </div>
+          <ChartCardItem title="Текущий месяц" value="1 711 400 ₸" count="64 док." color="bg-[#3b82f6]" />
+          <ChartCardItem title="Предыдущий месяц" value="1 000 400 ₸" count="154 док." color="bg-[#fbbf24]" />
+          <ChartCardItem title="Возвраты текущего месяца" value="300 000 ₸" count="3 док." color="bg-[#ef4444]" />
         </div>
       </CardHeader>
 
@@ -89,7 +28,7 @@ export function ChartCard() {
             2.000.000 ₸
           </div>
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={data} margin={{ top: 10, right: 0, left: 0, bottom: 0 }}>
+            <AreaChart data={analyticsData} margin={{ top: 10, right: 0, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="colorCurrent" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#007AFF" stopOpacity={0.25} />
