@@ -11,12 +11,13 @@ interface ChannelCardProps {
 
 export function ChannelCard({ item, className }: ChannelCardProps) {
     return (
-        <div className={cn("bg-white rounded-xl border border-gray-100 p-3 xl:p-4 shadow-sm relative text-left transition-all", className)}>
-            <div className="flex items-center justify-between mb-2.5 xl:mb-3.5">
-                <div className="font-bold text-[#2D2D2D] text-[15px] xl:text-[17px] transition-all">{item.name}</div>
+        <div className={cn("bg-white rounded-xl border border-[#E8E8E8] p-2 xl:pb-0 pb-0 relative text-left transition-all", className)}>
+            <div className="flex items-center justify-between mb-1 xl:mb-2">
+                <div className="font-medium text-[#2D2D2D] text-[15px] xl:text-[17px] transition-all">{item.name}</div>
                 <div className="text-gray-400 text-[11px] xl:text-xs font-medium flex items-center gap-1 transition-all">
-                    Точки отгрузки <span className="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600 font-bold ml-1">{item.points}</span>
-                    <ChevronDown className="w-4 h-4 text-gray-400" />
+                    <span className="text-base">Точки отгрузки</span>
+                    <span className="bg-gray-100 px-2 rounded-full textSecondary font-bold ml-1 text-sm">{item.points}</span>
+                    <ChevronDown className="w-4 h-4 textSecondary" />
                 </div>
             </div>
 
@@ -40,7 +41,7 @@ export function ChannelCard({ item, className }: ChannelCardProps) {
                 />
             </div>
 
-            <div className="relative flex items-center gap-2 h-4">
+            <div className="relative flex items-center gap-2 h-4 -mb-1">
                 <div className="flex-1 relative">
                     <Progress value={item.progress} className="h-1 bg-gray-100" indicatorClassName="bg-blue-500" />
                     <div

@@ -23,7 +23,7 @@ export function AnalyticsTabCard({
     className,
 }: AnalyticsTabCardProps) {
     return (
-        <Card className={cn("max-h-[530px] h-full bg-white border-gray-100 shadow-sm overflow-y-auto flex flex-col no-scrollbar", className)}>
+        <Card className={cn("max-h-[540px] h-full bg-white border-[#E8E8E8] shadow-sm overflow-y-auto flex flex-col no-scrollbar", className)}>
             <Tabs defaultValue={defaultValue} className="w-full flex-1 flex flex-col">
                 <CardHeader className="p-0 border-b border-gray-100 flex-row items-center justify-between h-[54px] shrink-0">
                     <TabsList className="bg-transparent p-0 flex h-full justify-start px-3">

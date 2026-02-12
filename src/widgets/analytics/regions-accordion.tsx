@@ -31,7 +31,7 @@ export function RegionsAccordion() {
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pb-4 pt-0 px-4">
-                  <div className="space-y-4 pt-2">
+                  <div className="space-y-4">
                     {city.items.length > 0 ? (
                       city.items.map((item) => <ChannelCard key={item.id} item={item} />)
                     ) : (
