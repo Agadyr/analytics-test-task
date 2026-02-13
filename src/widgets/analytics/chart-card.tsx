@@ -13,7 +13,7 @@ import { analyticsData } from '@/entities/analytics/model/mock-data'
 
 export function ChartCard() {
   return (
-    <Card className="col-span-12 rounded-2xl lg:col-span-8 bg-white shadow-none border-none">
+    <Card className="col-span-12 rounded-xl lg:col-span-8 bg-white shadow-none border-none">
       <CardHeader className="flex flex-col md:flex-row items-start md:items-center justify-between pb-2 px-3 md:px-4">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between w-full gap-3 md:gap-6">
           <ChartCardItem title="Текущий месяц" value="1 711 400 ₸" count="64 док." color="bg-[#3b82f6]" />
