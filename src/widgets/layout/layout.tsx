@@ -4,7 +4,7 @@ import { Sidebar } from './sidebar'
 import { Header } from './header'
 
 export function AppLayout({ children }: { children: ReactNode }) {
-  const [collapsed, setCollapsed] = useState(false)
+  const [collapsed, setCollapsed] = useState(window.innerWidth < 768)
 
   return (
     <div className="h-screen w-screen overflow-hidden flex bg-[#121212]">

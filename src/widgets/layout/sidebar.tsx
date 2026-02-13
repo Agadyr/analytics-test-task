@@ -26,7 +26,7 @@ interface SidebarProps {
 
 export function Sidebar({ collapsed, setCollapsed }: { collapsed: boolean; setCollapsed: (v: boolean) => void }) {
   const [activeWorkspace, setActiveWorkspace] = useState(workspaces[0])
-
+  
   const NavItem = ({
     icon,
     label,
