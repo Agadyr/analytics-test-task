@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Play } from 'lucide-react'
 import { Progress } from '@/shared/ui/progress'
 import type { ChannelItem } from '@/entities/channel/model/types'
@@ -10,35 +11,49 @@ interface ChannelCardProps {
 }
 
 export function ChannelCard({ item, className }: ChannelCardProps) {
+    const [expanded, setExpanded] = useState(true)
+
     return (
         <div className={cn("bg-white rounded-xl border border-[#E8E8E8] p-2 xl:pb-0 pb-0 relative text-left transition-all", className)}>
             <div className="flex items-center justify-between mb-1 xl:mb-2">
                 <div className="font-medium text-[#2D2D2D] text-[15px] xl:text-[17px] transition-all">{item.name}</div>
-                <div className="text-gray-400 text-[11px] px-2 xl:text-xs font-medium flex items-center gap-1 transition-all hover:bg-[#F5F5F5] hover:rounded-full cursor-pointer">
+                <div
+                    onClick={() => setExpanded(!expanded)}
+                    className="text-gray-400 text-[11px] px-2 xl:text-xs font-medium flex items-center gap-1 transition-all hover:bg-[#F5F5F5] hover:rounded-full cursor-pointer"
+                >
                     <span className="text-base">Точки отгрузки</span>
                     <span className="bg-gray-100 px-2 rounded-full textSecondary font-bold ml-1 text-sm">{item.points}</span>
-                    <img src="/icons/rightArrow.svg" alt="arrow right" className='rotate-90 ml-1' />
+                    <img
+                        src="/icons/rightArrow.svg"
+                        alt="arrow right"
+                        className={cn('ml-1 transition-transform duration-200', expanded ? 'rotate-90' : '-rotate-90')}
+                    />
                 </div>
             </div>
 
-            <div className="flex items-center gap-2 mb-3 xl:mb-4">
-                <ChannelMetricItem
-                    label="Продано:"
-                    value={item.sold_sum}
-                    count={item.sold_count}
-                    valueColor="text-lightGreen"
-                />
-                <ChannelMetricItem
-                    label="План:"
-                    value={item.plan_sum}
-                    status="Перевыполнение"
-                />
-                <ChannelMetricItem
-                    label="Возвраты:"
-                    value={item.returns_sum}
-                    count={item.returns_count}
-                    valueColor="text-red-500"
-                />
+            <div className={cn(
+                "transition-all duration-300 overflow-hidden",
+                expanded ? "max-h-[200px] opacity-100 mb-3 xl:mb-4" : "max-h-0 opacity-0 mb-0"
+            )}>
+                <div className="flex items-center gap-2">
+                    <ChannelMetricItem
+                        label="Продано:"
+                        value={item.sold_sum}
+                        count={item.sold_count}
+                        valueColor="text-lightGreen"
+                    />
+                    <ChannelMetricItem
+                        label="План:"
+                        value={item.plan_sum}
+                        status="Перевыполнение"
+                    />
+                    <ChannelMetricItem
+                        label="Возвраты:"
+                        value={item.returns_sum}
+                        count={item.returns_count}
+                        valueColor="text-red-500"
+                    />
+                </div>
             </div>
 
             <div className="relative flex items-center gap-2 h-4 -mb-1">
