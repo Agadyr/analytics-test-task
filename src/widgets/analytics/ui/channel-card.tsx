@@ -1,4 +1,4 @@
-import { ChevronDown, Play } from 'lucide-react'
+import { Play } from 'lucide-react'
 import { Progress } from '@/shared/ui/progress'
 import type { ChannelItem } from '@/entities/channel/model/types'
 import { ChannelMetricItem } from './channel-metric-item'

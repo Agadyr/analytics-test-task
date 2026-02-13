@@ -11,30 +11,30 @@ export function AnalyticsPage() {
     <div className="flex flex-col min-h-screen bg-[#F5F5F7]">
       <Tabs defaultValue="top-sales" className="w-full flex-1 flex flex-col">
         <div className="bg-white border-b border-[#E8E8E8]">
-          <div className="px-5 pt-2">
-            <div className="flex items-center justify-between">
-              <h1 className="text-2xl font-medium text-[#2D2D2D]">Аналитика</h1>
-              <div className="flex items-center gap-3">
+          <div className="px-3 py-3 md:px-5 md:pt-2">
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <h1 className="text-xl md:text-2xl font-medium text-[#2D2D2D]">Аналитика</h1>
+              <div className="flex items-center gap-3 w-full md:w-auto overflow-x-auto scrollbar-hide">
                 <TopFilters />
               </div>
             </div>
 
-            <TabsList className="bg-transparent p-0 gap-6 h-auto">
+            <TabsList className="bg-transparent p-0 gap-4 md:gap-6 h-auto mt-4 overflow-x-auto scrollbar-hide flex-nowrap w-full justify-start">
               <TabsTrigger
                 value="top-sales"
-                className="data-[state=active]:bg-transparent text-base cursor-pointer data-[state=active]:shadow-none data-[state=active]:border-b data-[state=active]:border-[#007AFF] data-[state=active]:text-[#2D2D2D] text-gray-400 rounded-none px-0 pb-3 font-medium transition-colors hover:text-gray-600 bg-transparent shadow-none"
+                className="data-[state=active]:bg-transparent text-sm md:text-base cursor-pointer data-[state=active]:shadow-none data-[state=active]:border-b data-[state=active]:border-[#007AFF] data-[state=active]:text-[#2D2D2D] text-gray-400 rounded-none px-0 pb-3 font-medium transition-colors hover:text-gray-600 bg-transparent shadow-none shrink-0"
               >
                 Топ продаж
               </TabsTrigger>
               <TabsTrigger
                 value="brands"
-                className="data-[state=active]:bg-transparent text-base cursor-pointer data-[state=active]:shadow-none data-[state=active]:border-b data-[state=active]:border-[#007AFF] data-[state=active]:text-[#2D2D2D] text-gray-400 rounded-none px-0 pb-3 font-medium transition-colors hover:text-gray-600 bg-transparent shadow-none"
+                className="data-[state=active]:bg-transparent text-sm md:text-base cursor-pointer data-[state=active]:shadow-none data-[state=active]:border-b data-[state=active]:border-[#007AFF] data-[state=active]:text-[#2D2D2D] text-gray-400 rounded-none px-0 pb-3 font-medium transition-colors hover:text-gray-600 bg-transparent shadow-none shrink-0"
               >
                 Для брендов
               </TabsTrigger>
               <TabsTrigger
                 value="power-bi"
-                className="data-[state=active]:bg-transparent text-base cursor-pointer data-[state=active]:shadow-none data-[state=active]:border-b data-[state=active]:border-[#007AFF] data-[state=active]:text-[#2D2D2D] text-gray-400 rounded-none px-0 pb-3 font-medium transition-colors hover:text-gray-600 bg-transparent shadow-none"
+                className="data-[state=active]:bg-transparent text-sm md:text-base cursor-pointer data-[state=active]:shadow-none data-[state=active]:border-b data-[state=active]:border-[#007AFF] data-[state=active]:text-[#2D2D2D] text-gray-400 rounded-none px-0 pb-3 font-medium transition-colors hover:text-gray-600 bg-transparent shadow-none shrink-0"
               >
                 Power BI
               </TabsTrigger>
@@ -42,7 +42,7 @@ export function AnalyticsPage() {
           </div>
         </div>
 
-        <div className="p-5">
+        <div className="p-2 md:p-5">
           <TabsContent value="top-sales" className="space-y-4 data-[state=active]:animate-in data-[state=active]:fade-in-0 data-[state=active]:zoom-in-95">
             <div className="grid grid-cols-12 gap-4">
               <div className="col-span-12 lg:col-span-3 space-y-4">

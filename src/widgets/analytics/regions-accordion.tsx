@@ -1,5 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/shared/ui/accordion'
-import { ChevronsUpDown, X } from 'lucide-react'
+import { ChevronsUpDown } from 'lucide-react'
 import { citiesData, managersData } from '@/entities/analytics/model/mock-data'
 import { AnalyticsTabCard, type TabConfig } from './ui/analytics-tab-card'
 import { ChannelCard } from './ui/channel-card'

@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { ArrowUpDown, Check } from 'lucide-react'
 import { Popover, PopoverContent, PopoverTrigger } from '@/shared/ui/popover'
 import { cn } from '@/shared/lib/utils'
