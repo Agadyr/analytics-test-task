@@ -14,17 +14,17 @@ import { analyticsData } from '@/entities/analytics/model/mock-data'
 export function ChartCard() {
   return (
     <Card className="col-span-12 rounded-2xl lg:col-span-8 bg-white shadow-none border-none">
-      <CardHeader className="flex flex-row items-center justify-between pb-2 px-4">
-        <div className="flex items-center justify-between w-full gap-6">
+      <CardHeader className="flex flex-col md:flex-row items-start md:items-center justify-between pb-2 px-3 md:px-4">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between w-full gap-3 md:gap-6">
           <ChartCardItem title="Текущий месяц" value="1 711 400 ₸" count="64 док." color="bg-[#3b82f6]" />
           <ChartCardItem title="Предыдущий месяц" value="1 000 400 ₸" count="154 док." color="bg-[#fbbf24]" />
           <ChartCardItem title="Возвраты текущего месяца" value="300 000 ₸" count="3 док." color="bg-[#ef4444]" />
         </div>
       </CardHeader>
 
-      <CardContent className="px-4 pt-0">
+      <CardContent className="px-3 md:px-4 pt-0">
         <div className="h-[270px] w-full relative">
-          <div className="absolute bottom-10 left-[-4px] text-[11px] text-[#AAB4BC] font-medium">
+          <div className="absolute bottom-10 left-[-4px] text-[9px] md:text-[11px] text-[#AAB4BC] font-medium">
             2.000.000 ₸
           </div>
           <ResponsiveContainer width="100%" height="100%">
@@ -48,11 +48,11 @@ export function ChartCard() {
                 dataKey="date"
                 axisLine={{ stroke: '#E5E5EA' }}
                 tickLine={false}
-                tick={{ fill: '#AAB4BC', fontSize: 10 }}
+                tick={{ fill: '#AAB4BC', fontSize: 9 }}
                 stroke="#E5E5EA"
                 dy={10}
-                interval={1}
-                tickFormatter={(value) => value.split('.')[0] + '.' + value.split('.')[1] + '.' + value.split('.')[2].slice(-2)}
+                interval={4}
+                tickFormatter={(value) => value.split('.')[0] + '.' + value.split('.')[1]}
               />
               <YAxis hide={true} domain={[0, 10000]} />
               <Tooltip

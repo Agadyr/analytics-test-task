@@ -19,19 +19,19 @@ const KPI_DATA = [
 
 export function SalesKpiCard() {
   return (
-    <div className="space-y-4">
-      <Card className="bg-quaternary rounded-xl text-white border-0 shadow-lg p-3">
-        <div className="mb-4">
-          <p className="text-sm text-gray-400">Продажи за июль</p>
-          <h2 className="text-4xl font-medium tracking-tight pt-3">1 629 619 ₸</h2>
-          <p className="text-sm text-gray-400">-68% от прошлого месяца</p>
+    <div className="space-y-3 md:space-y-4">
+      <Card className="bg-quaternary rounded-xl text-white border-0 shadow-lg p-3 md:p-4">
+        <div className="mb-3 md:mb-4">
+          <p className="text-xs md:text-sm text-gray-400">Продажи за июль</p>
+          <h2 className="text-3xl md:text-4xl font-medium tracking-tight pt-2 md:pt-3">1 629 619 ₸</h2>
+          <p className="text-xs md:text-sm text-gray-400">-68% от прошлого месяца</p>
         </div>
 
         <div>
-          <p className="text-sm font-medium text-white pt-1">План:</p>
+          <p className="text-xs md:text-sm font-medium text-white pt-1">План:</p>
           <div className="flex justify-between items-end mb-1">
-            <span className="text-base font-semibold">0 ₸</span>
-            <span className="text-sm text-white">0%</span>
+            <span className="text-sm md:text-base font-semibold">0 ₸</span>
+            <span className="text-xs md:text-sm text-white">0%</span>
           </div>
           <Progress value={0} className="h-1 bg-gray-600" indicatorClassName="bg-white" />
         </div>

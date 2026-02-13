@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { addDays, format } from 'date-fns'
 import type { SeriesPoint, TopItem, AnalyticsState } from './types'
 
-const today = new Date(2025, 11, 1) // mock month
+const today = new Date(2025, 11, 1)
 const genSeries = () => {
     const points: SeriesPoint[] = []
     for (let i = 0; i < 31; i++) {

@@ -31,20 +31,26 @@ export function KpiMetricsCarousel({ data, className }: KpiMetricsCarouselProps)
     const currentSet = data[activeIndex]
 
     return (
-        <div className={cn("bg-white rounded-2xl p-3 border border-gray-100", className)}>
+        <div className={cn("bg-white rounded-xl p-3 border border-gray-100", className)}>
             <div className="space-y-3 min-h-[100px] transition-all duration-300">
                 {currentSet.items.map((item, idx) => (
-                    <div key={idx} className="flex flex-col gap-1">
-                        <p className="text-[15px] text-[#9CA3AF] transition-all">{item.label}</p>
-                        <div className="flex items-center justify-between">
-                            <span className={cn("text-lg font-medium text-[#2D2D2D]", item.valueColor)}>{item.value}</span>
-                            <span className="text-[#3B3F44] text-sm">{item.documents}</span>
+                    <div key={idx} className="bg-white rounded-xl p-3 md:p-4 min-w-[260px] md:min-w-[300px] flex-1">
+                        <div className="space-y-3 md:space-y-4">
+                            <div key={idx} className="space-y-1">
+                                <div className="flex justify-between items-center text-xs md:text-sm">
+                                    <span className="text-gray-500">{item.label}</span>
+                                    <span className="text-gray-400 text-[10px] md:text-xs bg-gray-50 px-2 py-0.5 rounded-full">{item.documents}</span>
+                                </div>
+                                <div className={cn("text-lg md:text-xl font-semibold", item.valueColor || "text-[#2D2D2D]")}>
+                                    {item.value}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 ))}
             </div>
 
-            <div className="flex items-center gap-2 mt-4">
+            <div className="flex items-center gap-2 md:mt-4">
                 <button
                     onClick={handlePrev}
                     className="w-6 h-6 flex items-center justify-center bg-[#F1F3F5] rounded-lg cursor-pointer hover:bg-gray-200 transition-colors"
