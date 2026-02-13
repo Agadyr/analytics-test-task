@@ -11,7 +11,7 @@ export function AnalyticsPage() {
     <div className="flex flex-col min-h-screen bg-[#F5F5F7]">
       <Tabs defaultValue="top-sales" className="w-full flex-1 flex flex-col">
         <div className="bg-white border-b border-[#E8E8E8]">
-          <div className="px-3 py-3 md:px-5 md:pt-2">
+          <div className="px-3 pt-3 md:px-5 md:pt-2">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <h1 className="text-xl md:text-2xl font-medium text-[#2D2D2D]">Аналитика</h1>
               <div className="flex items-center gap-3 w-full md:w-auto overflow-x-auto scrollbar-hide">
