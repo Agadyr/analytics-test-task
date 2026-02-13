@@ -3,4 +3,5 @@ export interface ClientItem {
     name: string
     phone: string
     total_sum: number
+    total_count: number
 }

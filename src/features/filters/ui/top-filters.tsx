@@ -7,7 +7,7 @@ export function TopFilters() {
 
   return (
     <div className="flex flex-wrap gap-2 items-center">
-      <div className="flex items-center gap-2 bg-[#ECECEC] hover:bg-[#F6F6F6] rounded-xl px-4 py-2 transition-colors cursor-pointer group">
+      <div className="flex items-center gap-2 bg-[#ECECEC] hover:bg-[#F6F6F6] rounded-xl px-3 py-1.5 transition-colors cursor-pointer group">
         <Building2 className="w-4.5 h-4.5 text-[#A19FA1]" />
         <div className="relative flex items-center">
           <select
@@ -24,7 +24,7 @@ export function TopFilters() {
         </div>
       </div>
 
-      <div className="flex items-center gap-2 bg-[#ECECEC] hover:bg-[#F6F6F6] rounded-xl px-4 py-2 transition-colors cursor-pointer group">
+      <div className="flex items-center gap-2 bg-[#ECECEC] hover:bg-[#F6F6F6] rounded-xl px-3 py-1.5 transition-colors cursor-pointer group">
         <Store className="w-4.5 h-4.5 text-[#A19FA1]" />
         <div className="relative flex items-center">
           <select

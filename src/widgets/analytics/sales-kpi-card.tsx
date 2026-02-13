@@ -20,7 +20,7 @@ const KPI_DATA = [
 export function SalesKpiCard() {
   return (
     <div className="space-y-4">
-      <Card className="bg-quaternary rounded-2xl text-white border-0 shadow-lg p-3">
+      <Card className="bg-quaternary rounded-xl text-white border-0 shadow-lg p-3">
         <div className="mb-4">
           <p className="text-sm text-gray-400">Продажи за июль</p>
           <h2 className="text-4xl font-medium tracking-tight pt-3">1 629 619 ₸</h2>

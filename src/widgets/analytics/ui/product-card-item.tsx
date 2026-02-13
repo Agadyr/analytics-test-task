@@ -1,65 +1,103 @@
 import { useAnalyticsStore } from '@/entities/analytics/model/store'
 import { ProductMetricItem } from './product-metric-item'
+import ItemHead from './item-head'
 
 interface ProductCardItemProps {
-    product: {
+    item: {
         id: string;
         image: string;
         title: string;
-        article: string;
+        article?: string;
+        subTitle?: string;
         sold_sum: number;
         sold_count: number;
-        stock_sum: number;
-        stock_count: number;
+        stock_sum?: number;
+        stock_count?: number;
+        return_sum?: number;
+        return_count?: number;
     };
+    mode?: 'product' | 'category' | 'return';
+    filterType?: 'sum' | 'count';
 }
 
-export function ProductCardItem({ product }: ProductCardItemProps) {
+export function ProductCardItem({ item, mode = 'product', filterType = 'sum' }: ProductCardItemProps) {
     const { selectedItemId, selectItem } = useAnalyticsStore()
-    const isSelected = selectedItemId === product.id
+    const isSelected = selectedItemId === item.id
 
     return (
-        <div className="border border-[#F0F0F0] rounded-xl bg-white overflow-hidden transition-all">
-            <button
+        <div className="border border-[#E8E8E8] rounded-xl bg-white overflow-hidden transition-all">
+            <div
                 className="flex items-center justify-between p-2 w-full text-left group"
-                onClick={() => selectItem(isSelected ? undefined : product.id)}
+                onClick={() => selectItem(isSelected ? undefined : item.id)}
             >
-                <div className="flex items-center gap-3.5">
-                    <div className="w-[52px] h-[52px] xl:w-[60px] xl:h-[60px] rounded-xl bg-gray-50 overflow-hidden shrink-0 border border-gray-100/50 transition-all">
-                        <img src={product.image} alt="" className="w-full h-full object-cover" />
-                    </div>
-                    <div className="space-y-0.5">
-                        <div className="font-semibold text-[15px] xl:text-[17px] text-[#1A1A1A] leading-tight tracking-[-0.01em] transition-all">
-                            {product.title}
-                        </div>
-                        <div className="text-[12px] xl:text-[13px] text-[#95A1AC] font-medium transition-all">
-                            артикул: {product.article}
-                        </div>
-                    </div>
-                </div>
-                <div className="w-7 h-7 rounded-lg bg-[#F5F5F7] flex items-center justify-center group-hover:bg-[#E8E8EA] transition-colors shrink-0">
-                    <img src="/icons/rightArrow.svg" alt="chevron-right" />
-                </div>
-            </button>
+                <ItemHead item={item} />
+            </div>
 
             <div className="flex items-center gap-1.5 px-2 pb-2">
-                <ProductMetricItem
-                    label="Продано:"
-                    value={product.sold_sum}
-                    count={product.sold_count}
-                    valueColor="text-lightGreen"
-                />
-                <ProductMetricItem
-                    label="Остаток:"
-                    value={product.stock_sum}
-                    count={product.stock_count}
-                />
-                <ProductMetricItem
-                    label="Возврат:"
-                    value={0}
-                    count={0}
-                    valueColor="text-[#EB5757]"
-                />
+                {mode === 'category' ? (
+                    <>
+                        <ProductMetricItem
+                            label="Продано:"
+                            value={item.sold_sum}
+                            count={item.sold_count}
+                            valueColor="text-lightGreen"
+                            primaryDisplay={filterType}
+                        />
+                        <ProductMetricItem
+                            label="Возвраты:"
+                            value={item.return_sum || 0}
+                            count={item.return_count || 0}
+                            valueColor="text-[#EB5757]"
+                            primaryDisplay={filterType}
+                        />
+                    </>
+                ) : mode === 'return' ? (
+                    <>
+                        <ProductMetricItem
+                            label="Возврат:"
+                            value={item.return_sum || 0}
+                            count={item.return_count || 0}
+                            valueColor="text-[#EB5757]"
+                            primaryDisplay={filterType}
+                        />
+                        <ProductMetricItem
+                            label="Остаток:"
+                            value={item.stock_sum || 0}
+                            count={item.stock_count || 0}
+                            primaryDisplay={filterType}
+                        />
+                        <ProductMetricItem
+                            label="Продано:"
+                            value={item.sold_sum}
+                            count={item.sold_count}
+                            valueColor="text-lightGreen"
+                            primaryDisplay={filterType}
+                        />
+                    </>
+                ) : (
+                    <>
+                        <ProductMetricItem
+                            label="Продано:"
+                            value={item.sold_sum}
+                            count={item.sold_count}
+                            valueColor="text-lightGreen"
+                            primaryDisplay={filterType}
+                        />
+                        <ProductMetricItem
+                            label="Остаток:"
+                            value={item.stock_sum || 0}
+                            count={item.stock_count || 0}
+                            primaryDisplay={filterType}
+                        />
+                        <ProductMetricItem
+                            label="Возврат:"
+                            value={item.return_sum || 0}
+                            count={item.return_count || 0}
+                            valueColor="text-[#EB5757]"
+                            primaryDisplay={filterType}
+                        />
+                    </>
+                )}
             </div>
         </div>
     )

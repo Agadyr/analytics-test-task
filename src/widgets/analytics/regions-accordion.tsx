@@ -1,8 +1,9 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/shared/ui/accordion'
 import { ChevronsUpDown, X } from 'lucide-react'
-import { citiesData } from '@/entities/analytics/model/mock-data'
+import { citiesData, managersData } from '@/entities/analytics/model/mock-data'
 import { AnalyticsTabCard, type TabConfig } from './ui/analytics-tab-card'
 import { ChannelCard } from './ui/channel-card'
+import { ManagerCardItem } from './ui/manager-card-item'
 
 export function RegionsAccordion() {
   const tabs: TabConfig[] = [
@@ -14,11 +15,10 @@ export function RegionsAccordion() {
           <Accordion type="single" collapsible defaultValue="almaty" className="w-full">
             {citiesData.map((city) => (
               <AccordionItem key={city.id} value={city.id} className="border-0">
-                <AccordionTrigger className="hover:no-underline py-4 px-4 bg-white hover:bg-gray-50 transition-colors group data-[state=open]:bg-white">
+                <AccordionTrigger className="hover:no-underline py-2 px-4 ml-1 bg-white hover:bg-gray-50 transition-colors group data-[state=open]:bg-white">
                   <div className="flex items-center justify-between w-full text-left">
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center">
                       <div className="w-5 flex justify-center">
-                        <X className="w-4 h-4 text-gray-500 hidden group-data-[state=open]:block" />
                         <ChevronsUpDown className="w-4 h-4 text-gray-500 group-data-[state=open]:hidden" />
                       </div>
                       <span className="text-[17px] xl:text-[19px] font-medium text-[#2D2D2D] tracking-tight transition-all">
@@ -48,7 +48,17 @@ export function RegionsAccordion() {
     {
       value: 'managers',
       label: 'Топ менеджеров',
-      content: <div className="p-8 text-center text-sm text-gray-400">Нет данных</div>,
+      content: (
+        <div className="py-2 px-2 space-y-4 max-h-[600px] overflow-y-auto">
+          {managersData.length > 0 ? (
+            managersData.map((manager) => (
+              <ManagerCardItem key={manager.id} item={manager} />
+            ))
+          ) : (
+            <div className="p-8 text-center text-sm text-gray-400">Нет данных</div>
+          )}
+        </div>
+      ),
     },
   ]
 

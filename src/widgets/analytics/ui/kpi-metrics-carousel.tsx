@@ -47,13 +47,13 @@ export function KpiMetricsCarousel({ data, className }: KpiMetricsCarouselProps)
             <div className="flex items-center gap-2 mt-4">
                 <button
                     onClick={handlePrev}
-                    className="w-8 h-8 flex items-center justify-center bg-[#F1F3F5] rounded-lg cursor-pointer hover:bg-gray-200 transition-colors"
+                    className="w-6 h-6 flex items-center justify-center bg-[#F1F3F5] rounded-lg cursor-pointer hover:bg-gray-200 transition-colors"
                 >
                     <img src="/icons/rightArrow.svg" alt="left arrow" className="rotate-180" />
                 </button>
                 <button
                     onClick={handleNext}
-                    className="w-8 h-8 flex items-center justify-center bg-[#F1F3F5] rounded-lg cursor-pointer hover:bg-gray-200 transition-colors"
+                    className="w-6 h-6 flex items-center justify-center bg-[#F1F3F5] rounded-lg cursor-pointer hover:bg-gray-200 transition-colors"
                 >
                     <img src="/icons/rightArrow.svg" alt="right arrow" />
                 </button>

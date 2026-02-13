@@ -29,3 +29,27 @@ export interface AnalyticsState {
     setRange: (from: string, to: string) => void
     selectItem: (id?: string) => void
 }
+
+
+export interface ProductItem {
+    id: string
+    image: string
+    title: string
+    article?: string
+    subTitle?: string
+    sold_sum: number
+    sold_count: number
+    stock_sum?: number
+    stock_count?: number
+    return_sum?: number
+    return_count?: number
+}
+
+export interface Item {
+    name?: string
+    title?: string
+    store?: string
+    subTitle?: string
+    article?: string
+    image: string
+}

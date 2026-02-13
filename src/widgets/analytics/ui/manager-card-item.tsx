@@ -1,25 +1,20 @@
-import { ChevronDown, Play } from 'lucide-react'
+import { Play } from 'lucide-react'
 import { Progress } from '@/shared/ui/progress'
-import type { ChannelItem } from '@/entities/channel/model/types'
+import type { ManagerItem } from '@/entities/manager/model/types'
 import { ChannelMetricItem } from './channel-metric-item'
 import { cn } from "@/shared/lib/utils"
+import { ProductMetricItem } from './product-metric-item'
+import ItemHead from './item-head'
 
-interface ChannelCardProps {
-    item: ChannelItem;
+interface ManagerCardItemProps {
+    item: ManagerItem;
     className?: string;
 }
 
-export function ChannelCard({ item, className }: ChannelCardProps) {
+export function ManagerCardItem({ item, className }: ManagerCardItemProps) {
     return (
-        <div className={cn("bg-white rounded-xl border border-[#E8E8E8] p-2 xl:pb-0 pb-0 relative text-left transition-all", className)}>
-            <div className="flex items-center justify-between mb-1 xl:mb-2">
-                <div className="font-medium text-[#2D2D2D] text-[15px] xl:text-[17px] transition-all">{item.name}</div>
-                <div className="text-gray-400 text-[11px] px-2 xl:text-xs font-medium flex items-center gap-1 transition-all hover:bg-[#F5F5F5] hover:rounded-full cursor-pointer">
-                    <span className="text-base">Точки отгрузки</span>
-                    <span className="bg-gray-100 px-2 rounded-full textSecondary font-bold ml-1 text-sm">{item.points}</span>
-                    <img src="/icons/rightArrow.svg" alt="arrow right" className='rotate-90 ml-1' />
-                </div>
-            </div>
+        <div className={cn("bg-white rounded-xl border border-[#E8E8E8] p-2 relative text-left transition-all", className)}>
+            <ItemHead item={item} />
 
             <div className="flex items-center gap-2 mb-3 xl:mb-4">
                 <ChannelMetricItem
@@ -28,13 +23,8 @@ export function ChannelCard({ item, className }: ChannelCardProps) {
                     count={item.sold_count}
                     valueColor="text-lightGreen"
                 />
-                <ChannelMetricItem
-                    label="План:"
-                    value={item.plan_sum}
-                    status="Перевыполнение"
-                />
-                <ChannelMetricItem
-                    label="Возвраты:"
+                <ProductMetricItem
+                    label="Возврат:"
                     value={item.returns_sum}
                     count={item.returns_count}
                     valueColor="text-red-500"
